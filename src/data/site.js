@@ -4,7 +4,7 @@ export const contact = {
   fiverr: "https://pro.fiverr.com/freelancers/vcreateslab?public_mode=true",
   // Add an international-format number without + or spaces, e.g. 919876543210.
   // The WhatsApp button stays hidden until a number is added.
-  whatsappNumber: "",
+  whatsappNumber: "919565875200",
 };
 
 export const turnaround = [

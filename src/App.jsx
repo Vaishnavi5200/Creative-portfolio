@@ -10,6 +10,7 @@ import About from "./components/About.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function App() {
   return (
@@ -26,8 +27,10 @@ export default function App() {
         <About />
         <Testimonials />
         <Contact />
+       
       </main>
       <Footer />
+       <FloatingWhatsApp />
     </div>
   );
 }
