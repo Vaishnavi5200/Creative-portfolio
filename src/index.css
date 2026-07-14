@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #4f8cff;
+  color: #0a0a0a;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4f8cff;
+}
+
+/* film-grain texture used sparingly over the hero + featured project to
+   give a cinematic, "shot on camera" feel rather than a flat AI gradient */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* hairline section number label, used like an editorial/print mark
+   e.g. "01 — INTRO" instead of generic icon-based section headers */
+.section-label {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: #b5b5b5;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-label::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: #4f8cff;
+  display: inline-block;
+}
+
+.font-display {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-image: radial-gradient(circle at 15% 0%, rgba(79, 140, 255, 0.08), transparent 28rem);
+}
+
+.section-shell {
+  padding: 6rem 1.5rem;
+}
+
+.section-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.section-heading-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.primary-cta,
+.secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.875rem 1.65rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: 180ms ease;
+}
+
+.primary-cta {
+  background: #fff;
+  color: #0a0a0a;
+}
+.primary-cta:hover { background: #4f8cff; color: #fff; transform: translateY(-1px); }
+.secondary-cta { border: 1px solid #282828; color: #fff; }
+.secondary-cta:hover { border-color: #4f8cff; color: #4f8cff; transform: translateY(-1px); }
+
+.showreel-frame {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid #282828;
+  background: #111;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+}
+
+.work-card,
+.service-card {
+  border: 1px solid #282828;
+  border-radius: 1rem;
+  background: #111;
+  overflow: hidden;
+}
+.work-card { transition: border-color 180ms ease, transform 180ms ease; }
+.work-card:hover { border-color: rgba(79,140,255,.65); transform: translateY(-3px); }
+.service-card { padding: 1.75rem; }
+
+.work-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #303030;
+  border-radius: 999px;
+  padding: .45rem .75rem;
+  color: #c4c4c4;
+  font-size: .72rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.filter-row { display: flex; flex-wrap: wrap; gap: .55rem; }
+.filter-button {
+  border: 1px solid #292929;
+  border-radius: 999px;
+  padding: .55rem .9rem;
+  color: #a4a4a4;
+  font-size: .78rem;
+  transition: 160ms ease;
+}
+.filter-button:hover, .filter-button.is-active { color: #fff; border-color: #4f8cff; background: rgba(79,140,255,.11); }
+
+.thumbnail-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid #282828;
+  background: #111;
+}
+.thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  background: linear-gradient(to top, rgba(0,0,0,.88), transparent 65%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+.thumbnail-card:hover .thumbnail-overlay,
+.thumbnail-card:focus-visible .thumbnail-overlay { opacity: 1; }
+
+.contact-panel {
+  border: 1px solid #282828;
+  border-radius: 1.5rem;
+  padding: clamp(2rem, 6vw, 5rem);
+  background: radial-gradient(circle at 85% 15%, rgba(79,140,255,.16), transparent 24rem), #111;
+}
+
+@media (min-width: 768px) {
+  .section-shell { padding: 7.5rem 2.5rem; }
+  .section-heading-row { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .service-card { padding: 2.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
